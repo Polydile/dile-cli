@@ -1,0 +1,28 @@
+{
+  "name": "@dile/cli",
+  "version": "0.0.1",
+  "description": "Dile Components CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "dile components",
+    "web components"
+  ],
+  "author": "Miguel Angel Alvarez",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "plop": "^4.0.5"
+  },
+  "bin": {
+    "@dile/dile": "./index.js"
+  },
+  "files": [
+    "index.js", "plopfile.js"
+  ],
+  "preferGlobal": true
+}
