@@ -18,8 +18,16 @@ export const {{properCamelCase resource}}Config = new CrudConfigBuilder('{{endpo
     {{else}}
     item: (item) => html`${JSON.stringify(item)}`,
     {{/if}}
+    {{#if insertComponent}}
+    insertForm: () => html`<{{insertComponent}} id="insertform"></{{insertComponent}}>` ,
+    {{else}}
     insertForm: () => html`Insert form template`,
+    {{/if}}
+    {{#if updateComponent}}
+    updateForm: () => html`<{{updateComponent}} id="updateform"></{{updateComponent}}>` ,
+    {{else}}
     updateForm: () => html`Update form template`,
+    {{/if}}
     help: () => html`<p>{{properPascalCase resource}} help.</p>`,
     {{#if detailComponent}}
     detail: (item) => html`<{{detailComponent}} .item=${item}></{{detailComponent}}>` ,
