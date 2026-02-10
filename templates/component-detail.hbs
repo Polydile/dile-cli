@@ -6,12 +6,23 @@ export class {{pascalCase name}} extends LitElement {
       :host {
         display: block;
       }
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 300;
+      }
     `
   ];
 
+  static get properties() {
+    return {
+      item: { type: Object }
+    };
+  }
+
   render() {
     return html`
-      I am {{kebabCase name}}
+      <h2>Detail item</h2>
+      ${JSON.stringify(this.item)}
     `;
   }
 }

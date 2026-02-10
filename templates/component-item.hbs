@@ -9,9 +9,15 @@ export class {{pascalCase name}} extends LitElement {
     `
   ];
 
+  static get properties() {
+    return {
+      item: { type: Object }
+    };
+  }
+
   render() {
     return html`
-      I am {{kebabCase name}}
+      ${JSON.stringify(this.item)}
     `;
   }
 }
