@@ -1,0 +1,32 @@
+import { LitElement, html, css } from 'lit';
+import { {{properCamelCase entity}}Config } from '{{configImportPath}}';
+
+export class {{properPascalCase entity}}Crud extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = {{properCamelCase entity}}Config.getConfig();
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        .config=${this.config}
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('{{kebabCase name}}', {{properPascalCase entity}}Crud);
