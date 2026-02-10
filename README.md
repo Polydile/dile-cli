@@ -357,4 +357,4 @@ dile g-entity country \
 
 ## License
 
-MIT [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/149167485/7e1732b8-aa5e-4cbc-a9e7-2fb94f792556/README_ES.md)
+MIT
