@@ -1,0 +1,22 @@
+{{#if input}}
+      <dile-input label="Input" name="input" id="input" hideErrorOnInput></dile-input>
+{{/if}}
+{{#if checkbox}}
+      <dile-checkbox name="checkbox" id="checkbox">Checkbox element</dile-checkbox>
+{{/if}}
+{{#if select}}
+      <dile-select name="select" id="select" label="Select">
+        <select slot="select">
+          <option value="-">-</option>
+        </select>
+      </dile-select>
+{{/if}}
+{{#if radio}}
+      <dile-radio-group name="radio" id="radio" label="radio">
+        <dile-radio label="Yes" value="yes"></dile-radio>
+        <dile-radio label="Not" value="not"></dile-radio>
+      </dile-radio-group>
+{{/if}}
+{{#if textarea}}
+      <dile-textarea name="textarea" id="textarea" label="Textarea" max-rows="5" rows="2"></dile-textarea>
+{{/if}}

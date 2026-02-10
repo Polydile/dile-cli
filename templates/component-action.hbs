@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit';
-import { DileForm } from '@dile/ui/mixins/form'
+import { DileForm } from '@dile/ui/mixins/form';
 
 {{> form-fields-imports}}
 
-export class {{pascalCase name}} extends DileForm(LitElement) {
+export class {{properPascalCase name}} extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -14,10 +14,10 @@ export class {{pascalCase name}} extends DileForm(LitElement) {
 
   render() {
     return html`
-      Component {{kebabCase name}}
+      <p>Action name:</p>
 
 {{> form-fields-markup}}
     `;
   }
 }
-customElements.define('{{kebabCase name}}', {{pascalCase name}});
+customElements.define('{{kebabCase name}}', {{properPascalCase name}});
