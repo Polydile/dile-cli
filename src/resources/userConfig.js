@@ -4,28 +4,20 @@ import { ResponseApiAdapter } from '@dile/crud/lib/ResponseApiAdapter';
 import '@dile/ui/components/pages/pages.js';
 import '@dile/crud/components/action/crud-delete-action.js'
 
-class {{properPascalCase resource}}ResponseApiAdapter extends ResponseApiAdapter {
+class UserResponseApiAdapter extends ResponseApiAdapter {
   getElementList() {
     return this.response.data.result.data;
   }
 }
 
-export const {{properCamelCase resource}}Config = new CrudConfigBuilder('{{endpoint}}', {
-  responseAdapter: new {{properPascalCase resource}}ResponseApiAdapter(),
+export const userConfig = new CrudConfigBuilder('http://url/api/user', {
+  responseAdapter: new UserResponseApiAdapter(),
   templates: {
-    {{#if itemComponent}}
-    item: (item) => html`<{{itemComponent}} .item=${item}></{{itemComponent}}>` ,
-    {{else}}
-    item: (item) => html`${JSON.stringify(item)}`,
-    {{/if}}
+    item: (item) => html`<user-item .item=${item}></user-item>` ,
     insertForm: () => html`Insert form template`,
     updateForm: () => html`Update form template`,
-    help: () => html`<p>{{properPascalCase resource}} help.</p>`,
-    {{#if detailComponent}}
-    detail: (item) => html`<{{detailComponent}} .item=${item}></{{detailComponent}}>` ,
-    {{else}}
-    detail: (item) => html`${JSON.stringify(item)}`,
-    {{/if}}
+    help: () => html`<p>User help.</p>`,
+    detail: (item) => html`<user-detail .item=${item}></user-detail>` ,
     relations: null,
     formActions: (actionName, actionIds) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
