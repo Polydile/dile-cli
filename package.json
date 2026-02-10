@@ -15,14 +15,16 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "minimist": "^1.2.8",
-    "plop": "^4.0.5"
+    "commander": "^14.0.3",
+    "cosmiconfig": "^9.0.0",
+    "handlebars": "^4.7.8"
   },
   "bin": {
-    "@dile/dile": "./index.js"
+    "dile": "./bin/dile.js"
   },
   "files": [
-    "index.js", "plopfile.js"
+    "index.js",
+    "plopfile.js"
   ],
   "preferGlobal": true
 }

@@ -1,0 +1,19 @@
+import { LitElement, html, css } from 'lit';
+import { DileForm } from '@dile/ui/mixins/form'
+
+export class {{pascalCase name}} extends DileForm(LitElement) {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  render() {
+    return html`
+      Component {{kebabCase name}}
+    `;
+  }
+}
+customElements.define('{{kebabCase name}}', {{pascalCase name}});
