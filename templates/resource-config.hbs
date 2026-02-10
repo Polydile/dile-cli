@@ -3,6 +3,9 @@ import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
 import { ResponseApiAdapter } from '@dile/crud/lib/ResponseApiAdapter';
 import '@dile/ui/components/pages/pages.js';
 import '@dile/crud/components/action/crud-delete-action.js'
+{{#each componentImports}}
+import '{{this}}';
+{{/each}}
 
 class {{properPascalCase resource}}ResponseApiAdapter extends ResponseApiAdapter {
   getElementList() {
