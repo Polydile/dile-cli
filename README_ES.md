@@ -115,6 +115,17 @@ DILE_DEBUG=1 dile g-component ui/my-widget
 
 ---
 
+## Aviso de actualizaciones
+
+Este CLI consulta npm ocasionalmente y muestra un mensaje si hay una versión más nueva disponible.
+
+Puedes desactivarlo definiendo una de estas variables de entorno:
+
+- `DILE_DISABLE_UPDATE_CHECK=1`
+- `NO_UPDATE_NOTIFIER=1`
+
+---
+
 ## Comandos
 
 Para ver ayuda general:
