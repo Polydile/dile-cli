@@ -1,3 +1,10 @@
+---
+title: g-form
+layout: layout.html
+tags: commands
+---
+
+
 # `g-form <path>`
 
 Generates a form component.

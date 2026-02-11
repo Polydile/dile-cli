@@ -10,7 +10,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "keywords": [
     "cli",
@@ -36,8 +38,15 @@
     "bin/",
     "lib/",
     "templates/",
-    "*.md",    
-    "LICENSE*"  
+    "*.md",
+    "LICENSE*"
   ],
-  "preferGlobal": true
+  "preferGlobal": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "@dile/iconlib": "^1.0.1",
+    "@dile/ui": "^2.11.0",
+    "vite": "^7.3.1"
+  }
 }

@@ -1,3 +1,8 @@
+---
+title: Dile CLI Configuration
+layout: layout.html
+---
+
 # Configuration
 
 The CLI searches for configuration using `cosmiconfig` in the current directory (`process.cwd()`), in this order:

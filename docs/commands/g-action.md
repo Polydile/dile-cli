@@ -1,3 +1,9 @@
+---
+title: g-action
+layout: layout.html
+tags: commands
+---
+
 # `g-action <path>`
 
 Generates an "action" component.

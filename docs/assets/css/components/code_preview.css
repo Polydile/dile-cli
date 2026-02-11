@@ -1,0 +1,17 @@
+.code-preview {
+  border: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+html.dark-theme .code-preview {
+  color: #fff;
+}
+
+.code-preview__preview {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.code-preview dile-slide-show {
+  margin: 0.5rem 1rem;
+}

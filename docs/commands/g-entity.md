@@ -1,3 +1,10 @@
+---
+title: g-entity
+layout: layout.html
+tags: commands
+---
+
+
 # `g-entity <entity>`
 
 Generates the complete *scaffold* for an entity:

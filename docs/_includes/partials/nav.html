@@ -1,0 +1,25 @@
+<dile-selector
+    class="drawernav"
+    selected=${this.page} 
+>
+    <div class="nav-box transparent">
+      <dile-selector-item icon="navigate_next" class="general_link first"><a href="/">Home</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/configuration/">Configuration</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/debugging/">Debugging</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/update-notifications/">Update Notifications</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/exit-codes/">Exit Codes</a></dile-selector-item>
+    </div>
+
+    <div class="nav-box">
+
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/commands/">Commands</a></dile-selector-item>
+      
+        <div class="commands-nav">
+          {% for component in collections['commands'] %}
+            {% include "partials/nav-item.html" %}
+          {% endfor %}
+        </div>
+      
+    </div>  
+  
+</dile-selector>

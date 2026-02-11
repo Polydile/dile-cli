@@ -1,0 +1,25 @@
+<header>
+  <dile-nav menu="right">
+    <span class="site-name" slot="title">
+      <a href="/">
+        <img class="logo-dile-components" src="/assets/images/logo-polydile-v2.png" alt="logo dile-components">
+        <b>dile CLI</b>
+      </a>
+    </span>
+    <section class="actionsnav" slot="actions">
+      <a href="https://github.com/Polydile/dile-cli">
+        <dile-fontawesome-icon-github></dile-fontawesome-icon-github>
+      </a>
+    </section>
+    <dile-menu-hamburger hamburgerAlwaysVisible slot="menu" direction="left">
+        <nav class="app-menu" slot="menu" dile-cloak>
+          <div class="darkmodemobile">
+            <dile-light-mode-switch syncName="dark"></dile-light-mode-switch>
+          </div>
+          <div>
+            {% include "partials/nav.html" %}
+          </div>
+        </nav>
+    </dile-menu-hamburger>
+  </dile-nav>
+</header>

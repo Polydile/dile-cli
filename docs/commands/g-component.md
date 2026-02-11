@@ -1,3 +1,9 @@
+---
+title: g-component
+layout: layout.html
+tags: commands
+---
+
 # `g-component <path>`
 
 Generates a generic component.

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default: "Dile Cli" }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    [dile-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  {% include "partials/header.html" %}
+  <main>
+    <nav class="fixednav">
+      <div dile-cloak>
+        {% include "partials/nav.html" %}
+      </div>
+    </nav>
+    <div class="maincontent">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <section>
+        <ul class="mainfooter">
+          <li><a href="/">Home CLI</a></li>
+          <li><a href="/commands/">Commands</a></li>
+        </ul>
+      </section>
+      <section>
+        <b>More information</b>
+        <ul>
+          <li><a href="https://dile-components.com">Dile Components Catalog</a></li>
+          <li><a href="/attribution/">Attribution</a></li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+
+  <script src="/assets/js/index.js" type="module"></script>
+</body>
+</html>

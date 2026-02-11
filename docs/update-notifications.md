@@ -1,3 +1,8 @@
+---
+title: Dile CLI Update Notifications
+layout: layout.html
+---
+
 # Update notifications
 
 This CLI checks npm occasionally and prints a message if a newer version is available.

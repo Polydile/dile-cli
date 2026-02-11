@@ -1,3 +1,8 @@
+---
+title: Dile CLI Debugging
+layout: layout.html
+---
+
 # Debugging
 
 Enable debug logs with:

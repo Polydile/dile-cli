@@ -1,3 +1,10 @@
+---
+title: g-single
+layout: layout.html
+tags: commands
+---
+
+
 # `g-single <path>`
 
 Generates a "single" CRUD component connected to a resource config.

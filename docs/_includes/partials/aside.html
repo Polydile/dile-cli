@@ -1,0 +1,29 @@
+<aside>
+  <div class="aside_top">
+    <lluai-menu active="{{ name }}">
+      <lluai-menu-item name="home" label="Home" href="/">
+        <a href="/">Home</a>
+      </lluai-menu-item>
+      <lluai-menu-item name="started" label="Getting Started" href="/getting_started/">
+        <a href="/getting_started/">Getting Started</a>
+      </lluai-menu-item>
+      <lluai-menu-item name="styles" label="Styles" href="/styles/">
+        <a href="/styles/">Styles</a>
+      </lluai-menu-item>
+      <lluai-menu-item icon="chevron-right" name="components" label="Components" href="/components/">
+        <a href="/components/">Components</a>
+      </lluai-menu-item>
+      {% for component in collections.components %}
+        {% include "partials/component-nav-menu.html" %}
+      {% endfor %}
+    </lluai-menu>
+  </div>
+  <div class="aside_bottom">
+    <p>
+      With <span class="love">♥</span> by <a href="https://escuela.it">EscuelaIT</a>
+    </p>
+    <p>
+      The content on this website is licensed by a <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+</aside>

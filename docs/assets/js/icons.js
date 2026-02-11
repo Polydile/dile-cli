@@ -1,0 +1,1 @@
+import '@dile/iconlib/fontawesome-icons/github.js';

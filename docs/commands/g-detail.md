@@ -1,3 +1,10 @@
+---
+title: g-detail
+layout: layout.html
+tags: commands
+---
+
+
 # `g-detail <path>`
 
 Generates a "detail" component (entity detail).

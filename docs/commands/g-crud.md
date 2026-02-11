@@ -1,3 +1,9 @@
+---
+title: g-crud
+layout: layout.html
+tags: commands
+---
+
 # `g-crud <path>`
 
 Generates a CRUD component connected to a resource config.

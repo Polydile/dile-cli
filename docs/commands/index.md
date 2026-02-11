@@ -1,3 +1,8 @@
+---
+title: Dile CLI Commands
+layout: layout.html
+---
+
 # Commands
 
 To see general help:

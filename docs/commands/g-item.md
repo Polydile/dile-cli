@@ -1,3 +1,10 @@
+---
+title: g-item
+layout: layout.html
+tags: commands
+---
+
+
 # `g-item <path>`
 
 Generates an "item" component (typically for lists).

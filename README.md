@@ -59,7 +59,7 @@ dile g-component ui/my-widget
 
 All detailed docs live in `docs/`:
 
-- [Docs index](docs/README.md)
+- [Docs index](docs/index.md)
 - [Commands](docs/commands/README.md)
 - [Configuration](docs/configuration.md)
 - [Debugging](docs/debugging.md)

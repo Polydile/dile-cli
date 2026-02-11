@@ -1,3 +1,10 @@
+---
+title: g-resource-config
+layout: layout.html
+tags: commands
+---
+
+
 # `g-resource-config <resource>`
 
 Generates a resource configuration module for CRUD.
