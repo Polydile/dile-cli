@@ -2,7 +2,6 @@ footer {
   border-top: 2px solid var(--dile-secondary-color);
   padding-top: 0.15rem;
   padding-bottom: 0.75rem;
-  background-color: #f5f5f5;
 }
 footer .mainfooter {
   font-size: 1rem;

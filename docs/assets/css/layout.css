@@ -9,8 +9,9 @@ body {
   --dile-nav-padding-y: 5px;
   --dile-nav-padding-x: 0.75rem;
   line-height: 1.55rem;
+  background-color: var(--dile-background-color, #fff);
   color: var(--dile-on-background-color, #303030);
-  background-color: #f5f5f5;
+  
 }
 
 dile-nav, main, .footer {
@@ -34,12 +35,11 @@ dile-nav span.site-name a {
 }
 
 main {
-    background-color: var(--dile-background-color, #fff);
   padding: 1.5rem 0.75rem;
 }
 
 .footer {
-  padding: 0.5rem 0.75rem;
+  padding: 0rem 0.75rem;
 }
 
 .maincontent {
