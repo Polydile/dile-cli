@@ -9,6 +9,15 @@ This is the CLI from the [Dile Components catalog](https://dile-components.com/)
 
 This directory contains the detailed CLI documentation.
 
+## Installation
+
+To install Dile CLI run this command in a terminal window: 
+
+```bash
+npm i -g @dile/cli
+
+> You'll need Node.js installed on your system, version 18+ or higher, for this CLI to work.
+
 ## Guides
 
 - [Configuration](/configuration/)
