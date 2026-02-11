@@ -3,6 +3,12 @@ import { DileForm } from '@dile/ui/mixins/form'
 
 {{> form-fields-imports}}
 
+{{#if belongs}}
+{{#unless input}}
+import '@dile/ui/components/input/input.js';
+{{/unless}}
+{{/if}}
+
 export class {{pascalCase name}} extends DileForm(LitElement) {
   static styles = [
     css`
@@ -12,9 +18,31 @@ export class {{pascalCase name}} extends DileForm(LitElement) {
     `
   ];
 
+{{#if belongs}}
+  static get properties() {
+    return {
+      belongsTo: { type: String },
+      relationId: { type: String },
+    };
+  }
+
+  firstUpdated() {
+    if(this.belongsTo == {{{jsString belongs}}} && this.relationId) {
+      this.shadowRoot.getElementById({{{jsString belongs}}}).value = this.relationId;
+    }
+  }
+
+{{/if}}
+
   render() {
     return html`
       Component {{kebabCase name}}
+
+{{#if belongs}}
+{{#unless (and input (eq belongs "input"))}}
+  <dile-input label="{{belongs}}" name="{{belongs}}" id="{{belongs}}" hideErrorOnInput></dile-input>
+{{/unless}}
+{{/if}}
 
 {{> form-fields-markup}}
     `;
