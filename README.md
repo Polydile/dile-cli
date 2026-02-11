@@ -59,12 +59,10 @@ dile g-component ui/my-widget
 
 All detailed docs live in `docs/`:
 
-- [Docs index](docs/index.md)
-- [Commands](docs/commands/README.md)
-- [Configuration](docs/configuration.md)
-- [Debugging](docs/debugging.md)
-- [Update notifications](docs/update-notifications.md)
-- [Exit codes](docs/exit-codes.md)
+- [Docs index](https://cli.dile-components.com/)
+- [**Commands**](https://cli.dile-components.com/commands/)
+- [Configuration](https://cli.dile-components.com/configuration/)
+- [Debugging](https://cli.dile-components.com/debugging/)
 
 ***
 
