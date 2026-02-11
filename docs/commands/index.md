@@ -19,12 +19,12 @@ dile g-form --help
 
 ## Generators
 
-- [`g-component <path>`](g-component.md)
-- [`g-form <path>`](g-form.md)
-- [`g-item <path>`](g-item.md)
-- [`g-detail <path>`](g-detail.md)
-- [`g-action <path>`](g-action.md)
-- [`g-resource-config <resource>`](g-resource-config.md)
-- [`g-crud <path>`](g-crud.md)
-- [`g-single <path>`](g-single.md)
-- [`g-entity <entity>`](g-entity.md)
+- [`g-component <path>`](/commands/g-component/)
+- [`g-form <path>`](/commands/g-form/)
+- [`g-item <path>`](/commands/g-item/)
+- [`g-detail <path>`](/commands/g-detail/)
+- [`g-action <path>`](/commands/g-action/)
+- [`g-resource-config <resource>`](/commands/g-resource-config/)
+- [`g-crud <path>`](/commands/g-crud/)
+- [`g-single <path>`](/commands/g-single/)
+- [`g-entity <entity>`](/commands/g-entity/)
