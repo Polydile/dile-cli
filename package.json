@@ -36,7 +36,8 @@
     "bin/",
     "lib/",
     "templates/",
-    "README_ES.md"
+    "*.md",    
+    "LICENSE*"  
   ],
   "preferGlobal": true
 }
