@@ -14,7 +14,7 @@ export class {{properPascalCase entity}}Single extends LitElement {
   static get properties() {
     return {
       config: { type: Object },
-      itemId: { type: String },
+      relatedId: { type: String },
       language: { type: String },
     };
   }
@@ -27,7 +27,7 @@ export class {{properPascalCase entity}}Single extends LitElement {
   render() {
     return html`
       <dile-crud-single
-        relatedId="${this.itemId}"
+        relatedId="${this.relatedId}"
         .config=${this.config}
         language="${this.language}"
       ></dile-crud-single>

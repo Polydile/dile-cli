@@ -14,6 +14,7 @@ export class {{properPascalCase entity}}Crud extends LitElement {
   static get properties() {
     return {
       config: { type: Object },
+      language: { type: String },
     };
   }
 
@@ -26,6 +27,7 @@ export class {{properPascalCase entity}}Crud extends LitElement {
     return html`
       <dile-crud
         .config=${this.config}
+        language="${this.language}"
       ></dile-crud>
     `;
   }
