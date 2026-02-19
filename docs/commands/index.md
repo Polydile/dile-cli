@@ -17,6 +17,10 @@ For command help:
 dile g-form --help
 ```
 
+## Configuration
+
+- [`config-init`](/commands/config-init/)
+
 ## Generators
 
 - [`g-component <path>`](/commands/g-component/)
