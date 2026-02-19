@@ -1,6 +1,7 @@
 ---
 title: config-init Command
 layout: layout.html
+tags: commands
 ---
 
 # config-init
