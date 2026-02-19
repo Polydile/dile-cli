@@ -1,10 +1,10 @@
 ---
-title: config-init Command
+title: config-init
 layout: layout.html
 tags: commands
 ---
 
-# config-init
+# `config-init`
 
 Initialize a Dile CLI configuration file in your project.
 
