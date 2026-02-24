@@ -1,0 +1,62 @@
+import { LitElement, html, css } from 'lit';
+import { DileForm } from '@dile/ui/mixins/form';
+import "@dile/ui/components/modal/modal.js";
+import { authService } from '../../lib/app.js';
+
+export class DileRememberPassword extends DileForm(LitElement) {
+  static styles = [
+    css`
+      :host {
+        display: block;
+        --dile-modal-max-width: 520px;
+        --dile-modal-width: 90%;
+      }
+      a {
+        color: var(--secondary-color);
+      }
+      @media (min-width: 480px) {
+        :host {
+          --dile-modal-width: 80%;
+        }
+      }
+    `
+  ];
+
+  firstUpdated() {
+    this.modal = this.shadowRoot.getElementById('elmodal');
+  }
+
+  render() {
+    return html`
+    <a href="#" @click=${this.openRememberPassword}>Forgot your password?</a>
+    <dile-modal id="elmodal" showCloseIcon blocking>
+      <p>Forgot your password? No problem. Just let us know your
+      email address and we will email you a password reset link
+      that will allow you to choose a new one.</p>
+      <dile-input name="email" label="Email"></dile-input>
+      <dile-button @click=${this.doSendForgotPassword}>Send remember email</dile-button>
+    </dile-modal>
+    `;
+  }
+
+
+  closeModal() {
+    this.modal.close();
+  }
+
+  openRememberPassword(e) {
+    e.preventDefault();
+    this.modal.open();
+  }
+
+  async doSendForgotPassword(e) {
+    try {
+      let data = this.getData();
+      await authService.sendForgotPassword(data.email);
+      this.closeModal();
+    } catch (errors) {
+      this.showErrors(errors);
+    }
+  }
+}
+customElements.define('dile-remember-password', DileRememberPassword);

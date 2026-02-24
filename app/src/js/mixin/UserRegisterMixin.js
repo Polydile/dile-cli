@@ -1,0 +1,27 @@
+import { StateMixin } from './StateMixin.js';
+
+export const UserRegisterMixin = (Superclass) => class extends StateMixin(Superclass) {
+  static get properties() {
+    return {
+      loggedIn: { type: Boolean },
+    };
+  }
+
+  stateChanged(state) {
+    this.loggedIn = state.user.isLoggedIn;
+    if (this.loggedIn) {
+      this.goToUrl('/');
+    }
+  }
+
+  get form() {
+    return this.shadowRoot.querySelector('#form');
+  }
+
+  dispatchToken(token) {
+    this.dispatchEvent(new CustomEvent('new-token-issued', {
+      bubbles: true,
+      composed: true,
+    }));
+  }
+}

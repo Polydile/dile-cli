@@ -2,3 +2,5 @@ node_modules
 src/components
 src/resources
 _site
+app/node_modules
+app/dist

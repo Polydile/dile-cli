@@ -1,0 +1,22 @@
+{
+  "name": "dile-2026-app",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@dile/crud": "^1.1.7",
+    "@dile/iconlib": "^1.0.1",
+    "@dile/lib": "^0.2.19",
+    "@dile/ui": "^2.12.1",
+    "vite": "^7.3.1"
+  }
+}

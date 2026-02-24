@@ -1,0 +1,69 @@
+# Dependencias
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Construcción y distribución
+dist/
+build/
+*.tsbuildinfo
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache
+.cache/
+.parcel-cache
+.next
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.env*.local
+.cache
+.parcel-cache
+coverage/
+.nyc_output/
