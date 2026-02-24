@@ -12,7 +12,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "app:dev": "cd app && npm run dev",
+    "app:build": "cd app && npm run build",
+    "app:install": "cd app && npm install",
+    "build:app-templates": "node lib/scripts/build-app-templates.js"
   },
   "keywords": [
     "cli",

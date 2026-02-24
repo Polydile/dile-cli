@@ -1,0 +1,61 @@
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/message/message.js';
+import '@dile/ui/components/button/button.js';
+import { authService } from '../../lib/app.js';
+import { FeedbackMixin } from '../../mixin/FeedbackMixin.js';
+
+export class DileResendConfirmationEmail extends FeedbackMixin(LitElement) {
+  static styles = [
+    css`
+      :host {
+        display: block;
+        --dile-message-background-color: var(--secondary-color);
+        --dile-button-font-size: 0.8rem;
+        --dile-message-padding: 1rem 2rem;
+      }
+      a {
+        color: #ffc;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      user: { type: Object },
+    };
+  }
+
+  render() {
+    return html`
+    ${this.user && !this.user.email_verified_at
+      ? html`
+        <dile-message hideCloseIcon opened position="right-bottom">
+          <h2>Confirm your email</h2>
+          <p>
+            You are logged in! but, before start using this app, you need to verify your email account. We have sent an email to you. <b>Please check your email and click on the confirmation link</b>.
+          </p>
+          <p>
+            If you couldn't find the email, click on <a href="#" @click="${this.resendConfirmation}">resend the confirmation email</a>.
+          </p>
+          
+        </dile-message>
+        
+      `
+      : ''
+    }
+    `;
+  }
+
+  resendConfirmation(e) {
+    e.preventDefault();
+    authService.resendConfirmationEmail()
+      .then(() => {
+        this.positiveFeedback('Confirmation email resent successfully');
+      })
+      .catch(error => {
+        const message = error.response?.data?.message || 'Failed to resend confirmation email';
+        this.negativeFeedback(message);
+      });
+  }
+}
+customElements.define('dile-resend-confirmation-email', DileResendConfirmationEmail);

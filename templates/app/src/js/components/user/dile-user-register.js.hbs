@@ -1,0 +1,46 @@
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/card/card.js';
+import { pageStyles } from '../styles/page-styles';
+import './user-register-form.js';
+import { authService } from '../../lib/app.js';
+import { DileAppNavigate } from '@dile/lib';
+import { UserRegisterMixin } from '../../mixin/UserRegisterMixin.js';
+import { userFormStyles } from '../styles/user-form-styles.js';
+
+export class DileUserRegister extends UserRegisterMixin(DileAppNavigate(LitElement)) {
+  static styles = [
+    pageStyles,
+    userFormStyles,
+  ];
+
+  render() {
+    return html`
+      ${this.loggedIn 
+        ? html`<p>You are already logged in.</p>` 
+        : this.registerTemplate
+      }
+    `;
+  }
+
+  get registerTemplate() {
+    return html`
+      <main>
+        <dile-card title="Register">
+          <user-register-form id="form"></user-register-form>
+          <dile-button @click=${this.register}>Register</dile-button>
+        </dile-card>
+      </main>
+    `;
+  }
+
+  async register() {
+    try {
+      await authService.register(this.form.getData());
+      this.goToUrl('/');
+      this.dispatchToken();
+    } catch (errors) {
+      this.form.showErrors(errors);
+    }    
+  }
+}
+customElements.define('dile-user-register', DileUserRegister);

@@ -1,0 +1,168 @@
+import { LitElement, html, css } from 'lit';
+
+// UI components
+import '@dile/ui/components/nav/nav.js';
+import '@dile/ui/components/menu-hamburger/menu-hamburger.js';
+import '@dile/ui/components/selector/selector.js';
+import '@dile/ui/components/selector/selector-item.js'; 
+import '@dile/ui/components/button/button.js';
+import './user/dile-user.js';
+import './user/dile-resend-email-verification.js';
+
+// Feedback imports
+import { FeedbackMixin } from '../mixin/FeedbackMixin.js';
+import './feedback/{{appPrefix}}-app-toast.js';
+import './feedback/{{appPrefix}}-app-modal.js';
+import './feedback/{{appPrefix}}-app-loading.js';
+
+// Router imports
+import { DileAppRouter } from '@dile/lib';
+import { routes } from '../lib/routes.js';
+import './pages/dile-page-home.js'
+import { DileAppNavigate } from '@dile/lib';
+
+// State management
+import { StateMixin } from '../mixin/StateMixin.js';
+
+const logo = new URL('../../assets/logo-polydile.svg', import.meta.url).href;
+
+
+export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMixin(LitElement)))) {
+  static styles = [
+    css`
+      :host {
+        display: block;
+        --dile-hamburger-height: 24px;
+        --dile-hamburger-line-separation: -7px;
+        --{{appPrefix}}-app-drawer-content-width: 250px;
+        --dile-nav-padding-y: 0.35rem;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: inherit;
+        text-decoration: none;
+      }
+      dile-nav img {
+        height: 2rem;
+        margin: 0 0.5rem 0 0;
+      }
+      .app-menu {
+        margin: 50px 10px 10px 0.25rem;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      main {
+        padding: 0.75rem;
+      }
+
+      @media(min-width: 520px) {
+        :host {
+          --dile-nav-padding-y: 0.5rem;
+        }
+        .app-menu {
+          margin-top: 60px;
+        }
+      }
+
+      @media(min-width: 620px) {
+        :host {
+          --dile-nav-padding-x: 0.75rem;
+        }
+        .title {
+          font-size: 1.2rem;
+        }
+        dile-nav img {
+          height: 2.5rem;
+        }
+        main {
+          padding: 1rem;
+        }
+      }
+
+      @media(min-width: 1000px) {
+        :host {
+          --dile-nav-padding-x: 1.25rem;
+          --dile-nav-padding-y: 0.75rem;
+          --dile-hamburger-width: 28px;
+          --dile-hamburger-line-separation: -8px;
+          --dile-hamburger-line-size: 4px;
+        }
+        .title {
+          font-size: 1.3rem
+        }
+        dile-nav img {
+          height: 2.8rem;
+          margin: 0 0.75rem 0 0;
+        }
+        .app-menu {
+          margin-top: 70px;
+        }
+        main {
+          padding: 1.5rem;
+        }
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      user: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.createRoutes(routes);
+  }
+
+  stateChanged(state) {
+    this.user = state.user.userData;
+    console.log('User data updated in app component', this.user);
+  }
+
+  render() {
+    return html`
+      <dile-nav>
+        <a href="/" class="title" slot="title">
+          <img alt="App logo" src=${logo} />
+          {{appPrefix}}-app
+        </a>
+        <dile-menu-hamburger hamburgerAlwaysVisible slot="menu" direction="left">
+            <div slot="menu" class="app-menu" @dile-router-link-clicked="${this.navLinkClicked}">
+                <dile-selector-item icon="add">
+                  <dile-router-link href="/" title="Home">Home</dile-router-link>
+                </dile-selector-item>
+                <dile-selector-item icon="add">
+                  <dile-router-link href="/about" title="About us">About us</dile-router-link>
+                </dile-selector-item>
+            </div>
+        </dile-menu-hamburger>
+        <section slot="actions">
+          <dile-user></dile-user>
+        </section>
+      </dile-nav>
+
+      <main @new-token-issued=${this.checkUser}>
+        ${this._routes.outlet()}
+      </main>
+
+      <dile-resend-confirmation-email .user=${this.user}></dile-resend-confirmation-email>
+      <{{appPrefix}}-app-toast></{{appPrefix}}-app-toast>
+      <{{appPrefix}}-app-modal></{{appPrefix}}-app-modal>
+      <{{appPrefix}}-app-loading></{{appPrefix}}-app-loading>
+    `;
+  }
+
+  navLinkClicked(e) {
+    this.shadowRoot.querySelector('dile-menu-hamburger').close();
+  }
+
+  checkUser() {
+    console.log('Checking user after new token issued');
+    this.shadowRoot.querySelector('dile-user').checkUser();
+  }
+}
+customElements.define('{{appPrefix}}-app', DileApp);

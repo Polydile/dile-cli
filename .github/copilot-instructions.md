@@ -10,4 +10,4 @@ Whenever we create or edit features, they must be documented. There is a main `R
 
 Also we have specific READMEs for each command or feature in the `/docs` folder. This docs site is managed by Eleventy SSG. The commands docs are on '/docs/commands' folder. 
 
-Documentation should be always in English.
+Code, comments and documentation should be always in English.

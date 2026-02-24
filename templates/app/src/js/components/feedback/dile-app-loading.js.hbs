@@ -1,0 +1,4 @@
+import { DileAppLoading } from "@dile/lib";
+import { store } from "../../redux/store.js";
+
+customElements.define('{{appPrefix}}-app-loading', DileAppLoading(store));

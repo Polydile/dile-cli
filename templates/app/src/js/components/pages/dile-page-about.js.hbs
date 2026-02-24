@@ -1,0 +1,20 @@
+import { LitElement, html, css } from 'lit';
+import { DileFeedback } from '@dile/lib';
+import { store } from '../../redux/store';
+import { pageStyles } from '../styles/page-styles';
+
+class DilePageAbout extends DileFeedback(store)(LitElement) {
+  static styles = [
+    pageStyles
+  ];
+
+  render() {
+    return html`
+      <h1>About us</h1>
+      <p>
+        Hi, this is the about us page...
+      </p>
+    `;
+  }
+}
+customElements.define('dile-page-about', DilePageAbout);

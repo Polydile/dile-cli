@@ -1,0 +1,52 @@
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/menu-overlay/menu-overlay.js';
+import '@dile/ui/components/avatar/avatar.js';
+import { userMenuStyles } from '../styles/user-menu-styles';
+import { authService } from '../../lib/app.js';
+import { DileAppNavigate } from '@dile/lib';
+import { store } from '../../redux/store.js';
+import { removeUser } from '@dile/lib';
+
+export class DileUserMenu extends DileAppNavigate(LitElement) {
+  static styles = [
+    userMenuStyles,
+    css`
+      :host {
+        display: block;
+      }
+      dile-avatar {
+        cursor: pointer;
+      }
+    `
+  ];
+
+  properties() {
+    return {
+      user: { type: Object },
+    };
+  }
+
+  render() {
+    return html`
+      <dile-menu-overlay>
+        <a href="#" slot="trigger" @click="${e => e.preventDefault()}">
+          <dile-avatar initial="${this.user ? this.user.name : ''}"></dile-avatar>
+        </a>
+        <div slot="content">
+          <a class="loginoption" href="#" @click=${this.logout}>Logout</a>
+        </div>
+      </dile-menu-overlay>
+    `;
+  }
+
+  async logout() {
+    try {
+      await authService.logout();
+      this.goToUrl('/');
+      store.dispatch(removeUser());
+    } catch (errors) {
+      console.error(errors);
+    }
+  }
+}
+customElements.define('dile-user-menu', DileUserMenu);

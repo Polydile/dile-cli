@@ -1,0 +1,58 @@
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/card/card.js';
+import { pageStyles } from '../styles/page-styles.js';
+import './user-login-form.js';
+import { authService } from '../../lib/app.js';
+import { DileAppNavigate } from '@dile/lib';
+import { UserRegisterMixin } from '../../mixin/UserRegisterMixin.js';
+import { userFormStyles } from '../styles/user-form-styles.js';
+import './dile-remember-password.js';
+
+export class DileUserLogin extends UserRegisterMixin(DileAppNavigate(LitElement)) {
+  static styles = [
+    pageStyles,
+    userFormStyles,
+    css`
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+    `
+  ];
+
+  render() {
+    return html`
+      ${this.loggedIn 
+        ? html`<p>You are already logged in.</p>` 
+        : this.loginTemplate
+      }
+    `;
+  }
+
+  get loginTemplate() {
+    return html`
+      <main>
+        <dile-card title="login">
+          <user-login-form id="form"></user-login-form>
+          <div class="actions">
+            <dile-button @click=${this.login}>Login</dile-button>
+            <dile-remember-password></dile-remember-password>
+          </div>
+        </dile-card>
+      </main>
+    `;
+  }
+
+    async login() {
+      try {
+        await authService.login(this.form.getData());
+        this.goToUrl('/');
+        this.dispatchToken();
+      } catch (errors) {
+        this.form.showErrors(errors);
+      }    
+    }
+}
+customElements.define('dile-user-login', DileUserLogin);
