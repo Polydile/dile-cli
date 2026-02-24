@@ -7,7 +7,7 @@ import { tokenService } from '../../lib/app';
 import { store } from '../../redux/store';
 import { storeUser, setInitialized, removeUser} from '@dile/lib';
 import { StateMixin } from '../../mixin/StateMixin.js';
-import './dile-user-menu.js';
+import './{{appPrefix}}-user-menu.js';
 import { userMenuStyles } from '../styles/user-menu-styles.js';
 
 export class DileUser extends DileAppNavigate(StateMixin(LitElement)) {
@@ -60,7 +60,7 @@ export class DileUser extends DileAppNavigate(StateMixin(LitElement)) {
 
   get authenticatedTemplate() {
     return html`
-      <dile-user-menu .user="${this.user}"></dile-user-menu>
+      <{{appPrefix}}-user-menu .user="${this.user}"></{{appPrefix}}-user-menu>
     `;
   }
 
@@ -109,4 +109,4 @@ export class DileUser extends DileAppNavigate(StateMixin(LitElement)) {
     tokenService.removeToken();
   }
 }
-customElements.define('dile-user', DileUser);
+customElements.define('{{appPrefix}}-user', DileUser);

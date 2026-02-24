@@ -6,8 +6,8 @@ import '@dile/ui/components/menu-hamburger/menu-hamburger.js';
 import '@dile/ui/components/selector/selector.js';
 import '@dile/ui/components/selector/selector-item.js'; 
 import '@dile/ui/components/button/button.js';
-import './user/dile-user.js';
-import './user/dile-resend-email-verification.js';
+import './user/{{appPrefix}}-user.js';
+import './user/{{appPrefix}}-resend-email-verification.js';
 
 // Feedback imports
 import { FeedbackMixin } from '../mixin/FeedbackMixin.js';
@@ -18,7 +18,7 @@ import './feedback/{{appPrefix}}-app-loading.js';
 // Router imports
 import { DileAppRouter } from '@dile/lib';
 import { routes } from '../lib/routes.js';
-import './pages/dile-page-home.js'
+import './pages/{{appPrefix}}-page-home.js'
 import { DileAppNavigate } from '@dile/lib';
 
 // State management
@@ -34,7 +34,7 @@ export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMi
         display: block;
         --dile-hamburger-height: 24px;
         --dile-hamburger-line-separation: -7px;
-        --{{appPrefix}}-app-drawer-content-width: 250px;
+        --dile-app-drawer-content-width: 250px;
         --dile-nav-padding-y: 0.35rem;
       }
       .title {
@@ -133,15 +133,15 @@ export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMi
         <dile-menu-hamburger hamburgerAlwaysVisible slot="menu" direction="left">
             <div slot="menu" class="app-menu" @dile-router-link-clicked="${this.navLinkClicked}">
                 <dile-selector-item icon="add">
-                  <dile-router-link href="/" title="Home">Home</dile-router-link>
+                  <{{appPrefix}}-router-link href="/" title="Home">Home</{{appPrefix}}-router-link>
                 </dile-selector-item>
                 <dile-selector-item icon="add">
-                  <dile-router-link href="/about" title="About us">About us</dile-router-link>
+                  <{{appPrefix}}-router-link href="/about" title="About us">About us</{{appPrefix}}-router-link>
                 </dile-selector-item>
             </div>
         </dile-menu-hamburger>
         <section slot="actions">
-          <dile-user></dile-user>
+          <{{appPrefix}}-user></{{appPrefix}}-user>
         </section>
       </dile-nav>
 
@@ -149,7 +149,7 @@ export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMi
         ${this._routes.outlet()}
       </main>
 
-      <dile-resend-confirmation-email .user=${this.user}></dile-resend-confirmation-email>
+      <{{appPrefix}}-resend-confirmation-email .user=${this.user}></{{appPrefix}}-resend-confirmation-email>
       <{{appPrefix}}-app-toast></{{appPrefix}}-app-toast>
       <{{appPrefix}}-app-modal></{{appPrefix}}-app-modal>
       <{{appPrefix}}-app-loading></{{appPrefix}}-app-loading>
@@ -162,7 +162,7 @@ export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMi
 
   checkUser() {
     console.log('Checking user after new token issued');
-    this.shadowRoot.querySelector('dile-user').checkUser();
+    this.shadowRoot.querySelector('{{appPrefix}}-user').checkUser();
   }
 }
 customElements.define('{{appPrefix}}-app', DileApp);

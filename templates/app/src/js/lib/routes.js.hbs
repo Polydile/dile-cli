@@ -7,31 +7,31 @@ const setTitle = (title) => {
 export const routes = [
   {
     path: '/', 
-    render: () => html`<dile-page-home></dile-page-home>`,
+    render: () => html`<{{appPrefix}}-page-home></{{appPrefix}}-page-home>`,
     enter: () => setTitle('Home')
   },
   {
     path: '/about', 
-    render: () => html`<dile-page-about></dile-page-about>`,
+    render: () => html`<{{appPrefix}}-page-about></{{appPrefix}}-page-about>`,
     enter: async () => {
       setTitle('About us');
-      await import('../components/pages/dile-page-about.js');
+      await import('../components/pages/{{appPrefix}}-page-about.js');
     },
   },
   {
     path: '/login',
-    render: () => html`<dile-user-login></dile-user-login>`,
+    render: () => html`<{{appPrefix}}-user-login></{{appPrefix}}-user-login>`,
     enter: async () => {
       setTitle('Login');
-      await import('../components/user/dile-user-login.js');
+      await import('../components/user/{{appPrefix}}-user-login.js');
     },
   },
   {
     path: '/register',
-    render: () => html`<dile-user-register></dile-user-register>`,
+    render: () => html`<{{appPrefix}}-user-register></{{appPrefix}}-user-register>`,
     enter: async () => {
       setTitle('Register');
-      await import('../components/user/dile-user-register.js');
+      await import('../components/user/{{appPrefix}}-user-register.js');
     },
   },
 ];
