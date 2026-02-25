@@ -47,6 +47,12 @@ Show help:
 dile --help
 ```
 
+Create a new app:
+
+```bash
+dile create-app
+```
+
 Generate a component:
 
 ```bash

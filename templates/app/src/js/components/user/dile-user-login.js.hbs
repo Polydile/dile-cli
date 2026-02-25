@@ -6,7 +6,7 @@ import { authService } from '../../lib/app.js';
 import { DileAppNavigate } from '@dile/lib';
 import { UserRegisterMixin } from '../../mixin/UserRegisterMixin.js';
 import { userFormStyles } from '../styles/user-form-styles.js';
-import './dile-remember-password.js';
+import './{{appPrefix}}-remember-password.js';
 
 export class DileUserLogin extends UserRegisterMixin(DileAppNavigate(LitElement)) {
   static styles = [
@@ -38,7 +38,7 @@ export class DileUserLogin extends UserRegisterMixin(DileAppNavigate(LitElement)
           <user-login-form id="form"></user-login-form>
           <div class="actions">
             <dile-button @click=${this.login}>Login</dile-button>
-            <dile-remember-password></dile-remember-password>
+            <{{appPrefix}}-remember-password></{{appPrefix}}-remember-password>
           </div>
         </dile-card>
       </main>
