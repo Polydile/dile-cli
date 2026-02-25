@@ -10,7 +10,7 @@ const { version } = pkg;
 
 if (!process.env.DILE_DISABLE_UPDATE_CHECK && !process.env.NO_UPDATE_NOTIFIER) {
   try {
-    updateNotifier({ pkg }).notify();
+    updateNotifier({ pkg, isGlobal: true }).notify();
   } catch {
     // Never block CLI execution due to update checks
   }
