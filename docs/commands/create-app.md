@@ -3,6 +3,7 @@ layout: layout.html
 title: create-app
 description: Create a new Dile app
 permalink: /commands/create-app/
+tags: commands
 ---
 
 # create-app Command
