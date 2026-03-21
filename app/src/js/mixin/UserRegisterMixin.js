@@ -18,7 +18,7 @@ export const UserRegisterMixin = (Superclass) => class extends StateMixin(Superc
     return this.shadowRoot.querySelector('#form');
   }
 
-  dispatchToken(token) {
+  dispatchToken() {
     this.dispatchEvent(new CustomEvent('new-token-issued', {
       bubbles: true,
       composed: true,
