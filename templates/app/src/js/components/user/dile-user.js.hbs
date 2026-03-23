@@ -40,6 +40,8 @@ export class DileUser extends DileAppNavigate(StateMixin(LitElement)) {
   firstUpdated() {
     if(tokenService.token) { 
       this.checkUser();
+    } else {
+      store.dispatch(setInitialized());
     }
   }
 
@@ -102,11 +104,12 @@ export class DileUser extends DileAppNavigate(StateMixin(LitElement)) {
     const user = e.detail.data;
     console.log('User data received', user);
     store.dispatch(storeUser(user));
-    store.dispatch(setInitialized(true));
+    store.dispatch(setInitialized());
   }
   
   handleUserError(e) {
     tokenService.removeToken();
+    store.dispatch(setInitialized());
   }
 }
 customElements.define('{{appPrefix}}-user', DileUser);

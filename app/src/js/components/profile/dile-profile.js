@@ -1,0 +1,26 @@
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/card/card';
+import '@dile/ui/components/tabs/tabs.js';
+
+export class DileProfile extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  render() {
+    return html`
+      <h1>Profile page</h1>
+      <p>
+        This component is restricted to authenticated users.
+      </p>
+      <p>
+        It serves to demonstrate route protection mechanisms, ensuring that specific views are accessible only to registered members.
+      </p>
+    `;
+  }
+}
+customElements.define('dile-profile', DileProfile);

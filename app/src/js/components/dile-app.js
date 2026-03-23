@@ -115,7 +115,7 @@ export class DileApp extends DileAppNavigate(DileAppRouter(FeedbackMixin(StateMi
 
   constructor() {
     super();
-    this.createRoutes(routes);
+    this.createRoutes(routes(this));
   }
 
   stateChanged(state) {

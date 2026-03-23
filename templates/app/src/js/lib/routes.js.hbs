@@ -4,7 +4,7 @@ const setTitle = (title) => {
   document.title = title;
 };
 
-export const routes = [
+export const routes = (app) => [
   {
     path: '/', 
     render: () => html`<{{appPrefix}}-page-home></{{appPrefix}}-page-home>`,
@@ -33,5 +33,13 @@ export const routes = [
       setTitle('Register');
       await import('../components/user/{{appPrefix}}-user-register.js');
     },
+  },
+  {
+    path: '/profile',
+    render: () => html`<{{appPrefix}}-profile></{{appPrefix}}-profile>`,
+    enter: protectLoggedIn(app, async () => {
+      setTitle('Profile');
+      await import('../components/profile/{{appPrefix}}-profile.js');
+    }),
   },
 ];

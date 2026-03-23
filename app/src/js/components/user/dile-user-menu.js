@@ -33,6 +33,7 @@ export class DileUserMenu extends DileAppNavigate(LitElement) {
           <dile-avatar initial="${this.user ? this.user.name : ''}"></dile-avatar>
         </a>
         <div slot="content">
+          <fct-router-link class="loginoption" href="/profile" title="Profile">Profile</fct-router-link>
           <a class="loginoption" href="#" @click=${this.logout}>Logout</a>
         </div>
       </dile-menu-overlay>

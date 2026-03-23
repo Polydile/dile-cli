@@ -4,7 +4,7 @@ const setTitle = (title) => {
   document.title = title;
 };
 
-export const routes = [
+export const routes = (app) => [
   {
     path: '/', 
     render: () => html`<dile-page-home></dile-page-home>`,
@@ -33,5 +33,13 @@ export const routes = [
       setTitle('Register');
       await import('../components/user/dile-user-register.js');
     },
+  },
+  {
+    path: '/profile',
+    render: () => html`<dile-profile></dile-profile>`,
+    enter: protectLoggedIn(app, async () => {
+      setTitle('Profile');
+      await import('../components/profile/dile-profile.js');
+    }),
   },
 ];
