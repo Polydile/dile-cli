@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { protectLoggedIn } from './authGuards.js';
 
 const setTitle = (title) => {
   document.title = title;

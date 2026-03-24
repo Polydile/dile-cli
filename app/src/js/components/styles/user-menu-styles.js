@@ -4,7 +4,7 @@ export const userMenuStyles = css`
   .loginoverlay {
     --dile-menu-overlay-width: 200px;  
   }
-  fct-router-link.loginoption, a.loginoption {
+  .loginoption {
     display: block;
     padding: 20px 5px 20px 20px;
     text-decoration: none;
@@ -16,13 +16,13 @@ export const userMenuStyles = css`
     border-radius: 2px;
     flex-grow: 1;
   }
-  a.loginoption:visited {
+  .loginoption:visited {
     color: #303030;
   }
-  a.loginoption:first-child {
+  .loginoption:first-child {
     border-bottom: 1px solid #e6e6e6;
   }
-  fct-router-link.loginoption:hover, a.loginoption:hover {
+  .loginoption:hover {
     background-color: var(--dile-primary-dark-color);
     color: var(--dile-on-primary-dark-color);
   }

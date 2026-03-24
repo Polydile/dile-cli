@@ -20,7 +20,7 @@ export class DileUserMenu extends DileAppNavigate(LitElement) {
     `
   ];
 
-  properties() {
+  static get properties() {
     return {
       user: { type: Object },
     };
@@ -33,14 +33,15 @@ export class DileUserMenu extends DileAppNavigate(LitElement) {
           <dile-avatar initial="${this.user ? this.user.name : ''}"></dile-avatar>
         </a>
         <div slot="content">
-          <fct-router-link class="loginoption" href="/profile" title="Profile">Profile</fct-router-link>
+          <{{appPrefix}}-router-link class="loginoption" href="/profile" title="Profile">Profile</{{appPrefix}}-router-link>
           <a class="loginoption" href="#" @click=${this.logout}>Logout</a>
         </div>
       </dile-menu-overlay>
     `;
   }
 
-  async logout() {
+  async logout(e) {
+    e.preventDefault();
     try {
       await authService.logout();
       this.goToUrl('/');
