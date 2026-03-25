@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/card/card.js';
 import { pageStyles } from '../styles/page-styles.js';
-import './user-login-form.js';
+import './dile-user-login-form.js';
 import { authService } from '../../lib/app.js';
 import { DileAppNavigate } from '@dile/lib';
 import { UserRegisterMixin } from '../../mixin/UserRegisterMixin.js';
@@ -35,7 +35,7 @@ export class DileUserLogin extends UserRegisterMixin(DileAppNavigate(LitElement)
     return html`
       <main>
         <dile-card title="login">
-          <user-login-form id="form"></user-login-form>
+          <dile-user-login-form id="form"></dile-user-login-form>
           <div class="actions">
             <dile-button @click=${this.login}>Login</dile-button>
             <dile-remember-password></dile-remember-password>

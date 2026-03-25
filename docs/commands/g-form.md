@@ -23,10 +23,32 @@ Generates a form component.
 - `--belongs <name>`: adds relation support (`belongsTo` and `relationId` properties) and auto-creates a `<dile-input>` with `name/id` set to `<name>`; intended for `<dile-crud-insert>`
 - `--force`: overwrites if the file exists
 
-## Example
+## Component Prefix
+
+If a `componentPrefix` is configured in your `dile.config.js`, the component name will include this prefix:
 
 ```bash
+# With componentPrefix: 'my-app' in configuration
+dile g-form forms/user-form
+
+# Generates file: src/components/forms/my-app-user-form.js
+# With:
+# - Component tag: <my-app-user-form></my-app-user-form>
+# - Class name: MyAppUserForm
+# - customElements.define('my-app-user-form', MyAppUserForm)
+```
+
+## Example
+
+Without prefix:
+```bash
 dile g-form forms/invoice-form -i -t
+```
+
+With prefix configured (`componentPrefix: 'dile'`):
+```bash
+dile g-form forms/invoice-form -i -t
+# Generates: src/components/forms/dile-invoice-form.js
 ```
 
 Example with `--belongs`:

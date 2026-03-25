@@ -35,6 +35,34 @@ Notes:
 
 - You can pass the tag with or without `.js`.
 - If it doesn't find it, it omits the import (and in debug mode shows which paths it tried).
+- When using `g-entity`, component tags are automatically prefixed if `componentPrefix` is configured.
+
+## Component Prefix
+
+When using `g-entity`, if a `componentPrefix` is configured in your `dile.config.js`, the component tags passed to `g-resource-config` automatically include the prefix:
+
+```bash
+# With componentPrefix: 'my-app' in configuration
+dile g-entity user --endpoint https://example.com/api/users
+
+# Internally generates resource config with prefixed component tags:
+# - itemComponent: my-app-user-item
+# - detailComponent: my-app-user-detail
+# - insertComponent: my-app-user-form
+# - updateComponent: my-app-user-form
+```
+
+When running `g-resource-config` directly, you need to pass the prefixed tag names if your components use a prefix:
+
+```bash
+# With componentPrefix: 'dile' configured
+dile g-resource-config user \
+  --endpoint https://example.com/api/users \
+  --item-component dile-user-item \
+  --detail-component dile-user-detail \
+  --insert-component dile-user-form \
+  --update-component dile-user-form
+```
 
 ## Example
 

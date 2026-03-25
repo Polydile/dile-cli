@@ -41,10 +41,36 @@ In resources (`resourcesBase`):
 
 - `<entityCamel>Config.js`
 
+## Component Prefix
+
+If a `componentPrefix` is configured in your `dile.config.js`, all generated components will include this prefix:
+
+```bash
+# With componentPrefix: 'my-app' in configuration
+dile g-entity user --endpoint https://example.com/api/users -i
+
+# Generates:
+# - src/components/user/my-app-user-form.js
+# - src/components/user/my-app-user-item.js
+# - src/components/user/my-app-user-detail.js
+# - src/components/user/my-app-user-crud.js
+# - src/components/user/my-app-user-single.js
+# - src/resources/userConfig.js
+```
+
 ## Example
 
+Without prefix:
 ```bash
 dile g-entity country \
   --endpoint https://example.com/api/countries \
   -i -t
+```
+
+With prefix configured (`componentPrefix: 'dile'`):
+```bash
+dile g-entity country \
+  --endpoint https://example.com/api/countries \
+  -i -t
+# Generates all components prefixed with 'dile-country-*'
 ```

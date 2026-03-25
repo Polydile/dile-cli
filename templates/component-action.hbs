@@ -3,7 +3,7 @@ import { DileForm } from '@dile/ui/mixins/form';
 
 {{> form-fields-imports}}
 
-export class {{properPascalCase name}} extends DileForm(LitElement) {
+export class {{className}} extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -20,4 +20,4 @@ export class {{properPascalCase name}} extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('{{kebabCase name}}', {{properPascalCase name}});
+customElements.define('{{tagName}}', {{className}});

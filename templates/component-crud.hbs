@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { {{properCamelCase entity}}Config } from '{{configImportPath}}';
 import '@dile/crud/components/crud/crud.js';
 
-export class {{properPascalCase entity}}Crud extends LitElement {
+export class {{className}} extends LitElement {
   static styles = [
     css`
       :host {
@@ -32,4 +32,4 @@ export class {{properPascalCase entity}}Crud extends LitElement {
     `;
   }
 }
-customElements.define('{{kebabCase name}}', {{properPascalCase entity}}Crud);
+customElements.define('{{tagName}}', {{className}});

@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/card/card.js';
 import { pageStyles } from '../styles/page-styles';
-import './user-register-form.js';
+import './dile-user-register-form.js';
 import { authService } from '../../lib/app.js';
 import { DileAppNavigate } from '@dile/lib';
 import { UserRegisterMixin } from '../../mixin/UserRegisterMixin.js';
@@ -26,7 +26,7 @@ export class DileUserRegister extends UserRegisterMixin(DileAppNavigate(LitEleme
     return html`
       <main>
         <dile-card title="Register">
-          <user-register-form id="form"></user-register-form>
+          <dile-user-register-form id="form"></dile-user-register-form>
           <dile-button @click=${this.register}>Register</dile-button>
         </dile-card>
       </main>

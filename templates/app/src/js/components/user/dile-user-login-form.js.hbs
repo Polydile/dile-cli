@@ -5,7 +5,7 @@ import '@dile/ui/components/input/input.js';
 import '@dile/ui/components/password/password.js';
 
 
-export class userLoginForm extends DileForm(LitElement) {
+export class DileUserLoginForm extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -22,4 +22,4 @@ export class userLoginForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('user-login-form', userLoginForm);
+customElements.define('{{appPrefix}}-user-login-form', DileUserLoginForm);

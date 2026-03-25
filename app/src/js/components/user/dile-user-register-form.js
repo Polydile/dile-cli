@@ -4,7 +4,7 @@ import { DileForm } from '@dile/ui/mixins/form'
 import '@dile/ui/components/input/input.js';
 import '@dile/ui/components/password/password.js';
 
-export class userRegisterForm extends DileForm(LitElement) {
+export class DileUserRegisterForm extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -22,4 +22,4 @@ export class userRegisterForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('user-register-form', userRegisterForm);
+customElements.define('dile-user-register-form', DileUserRegisterForm);

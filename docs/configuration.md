@@ -63,6 +63,27 @@ export default {
 }
 ```
 
+## Component Prefix
+
+You can configure a prefix for component names:
+
+```js
+// dile.config.js
+export default {
+  components: { basePath: 'src/components' },
+  resources: { basePath: 'src/resources' },
+  componentPrefix: 'my',
+};
+```
+
+When a prefix is set, generated components will use it in their tag names. For example, a button component would be named `my-app-button` instead of `button`.
+
+You can also set this during configuration initialization:
+
+```bash
+dile config-init --prefix my-app
+```
+
 If there is no configuration, the default values are:
 
 - `componentsBase = "src/components"`

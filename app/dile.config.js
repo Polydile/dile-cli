@@ -4,5 +4,6 @@ export default {
   },
   "resources": {
     "basePath": "src/js/resources"
-  }
+  },
+  "componentPrefix": "{{appPrefix}}"
 };

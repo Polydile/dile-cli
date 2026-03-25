@@ -9,7 +9,7 @@ import '@dile/ui/components/input/input.js';
 {{/unless}}
 {{/if}}
 
-export class {{pascalCase name}} extends DileForm(LitElement) {
+export class {{className}} extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -48,4 +48,4 @@ export class {{pascalCase name}} extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('{{kebabCase name}}', {{pascalCase name}});
+customElements.define('{{tagName}}', {{className}});

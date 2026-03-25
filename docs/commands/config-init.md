@@ -19,6 +19,7 @@ dile config-init [options]
 - `--cjs` - Generate CommonJS format (`dile.config.cjs`)
 - `--mjs` - Generate ES Module format (`dile.config.mjs`)
 - `--json` - Generate JSON format (`dile.config.json`)
+- `--prefix <prefix>` - Set the component prefix (e.g. `dile`)
 - `--force` - Overwrite existing configuration file
 
 ## Examples
@@ -30,6 +31,12 @@ dile config-init
 ```
 
 This creates a `dile.config.js` file with default paths.
+
+Create configuration with component prefix:
+
+```bash
+dile config-init --prefix dile
+```
 
 Create CommonJS configuration:
 
@@ -57,6 +64,22 @@ By default, the command creates a `dile.config.js` file with:
 export default {
   components: { basePath: 'src/components' },
   resources: { basePath: 'src/resources' },
+};
+```
+
+With the `--prefix` option:
+
+```bash
+dile config-init --prefix my-prefix
+```
+
+This creates a configuration with:
+
+```js
+export default {
+  components: { basePath: 'src/components' },
+  resources: { basePath: 'src/resources' },
+  componentPrefix: 'my-prefix',
 };
 ```
 

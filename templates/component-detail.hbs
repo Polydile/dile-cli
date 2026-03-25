@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class {{pascalCase name}} extends LitElement {
+export class {{className}} extends LitElement {
   static styles = [
     css`
       :host {
@@ -26,4 +26,4 @@ export class {{pascalCase name}} extends LitElement {
     `;
   }
 }
-customElements.define('{{kebabCase name}}', {{pascalCase name}});
+customElements.define('{{tagName}}', {{className}});
