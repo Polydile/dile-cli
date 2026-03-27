@@ -37,7 +37,7 @@ export const {{properCamelCase resource}}Config = new CrudConfigBuilder('{{endpo
     {{else}}
     detail: (item) => html`${JSON.stringify(item)}`,
     {{/if}}
-    relations: null,
+    relations: () => '',
     formActions: (actionName, actionIds) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
