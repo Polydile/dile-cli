@@ -58,6 +58,9 @@ export const {{properCamelCase resource}}Config = new CrudConfigBuilder('{{endpo
     disableSort: true,
     disableFilter: true,
   },
+  computeItemId: (element) => {
+    return element.id;
+  },
   sort: {
     options: [
       {
