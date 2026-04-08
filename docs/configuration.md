@@ -15,7 +15,7 @@ The CLI searches for configuration using `cosmiconfig` in the current directory 
 
 ## Command to generate configuration file
 
-Dile CLI provides a command to generate the configuration file: `dile congig-init`. You will find more information in the [config-init command documentation](/commands/config-init/) page.
+Dile CLI provides a command to generate the configuration file: `dile config-init`. You will find more information in the [config-init command documentation](/commands/config-init/) page.
 
 ## Module format for `dile.config.js`
 
